@@ -36,7 +36,7 @@ const router = createRouter({
 router.beforeEach((to:any, from:any, next:any) => {
     let tokenStore = useStore();
     NProgress.start();
-    if(tokenStore.state.loginToken){
+    if(tokenStore.state.Token.loginToken){
         next();
     }else{
         if(to.path === '/login'){

@@ -1,5 +1,5 @@
 import Vuex from 'vuex';
-
+import Token from './modules/token'
 const store = new Vuex.Store({
     state:{
         index:"store",
@@ -13,7 +13,7 @@ const store = new Vuex.Store({
     actions:{},
     getters:{},
     modules:{
-
+        Token
     }
 })
 export default store;

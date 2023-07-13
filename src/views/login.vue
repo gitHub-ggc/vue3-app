@@ -1,29 +1,35 @@
 <script setup lang="ts">
 import { ref, reactive, getCurrentInstance } from "vue";
-import { Field,Button,Checkbox,Toast } from 'vant';
+import { Field,Checkbox,showToast } from 'vant';
 import { useRoute, useRouter } from 'vue-router';
-let username = reactive("admin");
-let password = reactive("123");
+import { useStore } from 'vuex';
+let username = ref("admin");
+let password = ref("123");
+const obj = reactive({username:'admin',password:'123'});
 let checked = ref(false);
 const route = useRoute();
 const router = useRouter();
-const prox = getCurrentInstance();
-console.log(prox)
+const store = useStore();
 //提交事件
 function btn(){
-  if(!username || password){
-    prox.$Toast('用户名或者密码未填！')
-  }else if(username !== 'admin' || password !== '123'){
-    prox.$Toast('用户名或者密码错误')
+  if(!obj.username || !obj.password){
+    showToast('用户名或者密码未填！')
+    return;
+  }else if(obj.username !== 'admin' || obj.password !== '123'){
+    showToast('用户名或者密码错误')
+    return;
   }else if(!checked.value){
-    prox.Toast('请勾选安全策略')
+    showToast('请勾选安全策略')
+    return;
   }
-  console.log(checked)
+  store.commit('Token/set_loginToken',true);
+  router.push('/home')
 };
 //安全策略事件
 function hideEvent(){
   router.push('/hide');
 }
+
 </script>
 
 <template>
@@ -33,23 +39,24 @@ function hideEvent(){
     </div>
     <div class="login-input">
       <div class="user-login">用户登入</div>
-      <van-cell-group class="login-group">
-        <field
-          v-model="username"
+      <!-- <van-cell-group class="login-group"> -->
+        <Field
+          v-model="obj.username"
           clearable
           placeholder="用户名"
         />
-        <field
-          v-model="password"
+        <Field
+          v-model="obj.password"
           type="password"
           placeholder="密码"
         />
-      </van-cell-group>
+      <!-- </van-cell-group> -->
       <div class="hide">
         <Checkbox v-model="checked"></Checkbox>
         <span class="text">已同意本（<span @click="hideEvent" class="text-color">安全政策</span>）</span>
       </div>
-      <Button type="primary" @click="btn" class="login-btn">登入</Button>
+      <!-- <Button type="primary" @click="btn" class="login-btn">登入</Button> -->
+      <van-button @click="btn" class="login-btn" type="primary">登入</van-button>
     </div>
   </div>
 </template>

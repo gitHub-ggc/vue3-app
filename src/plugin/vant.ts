@@ -1,7 +1,14 @@
-import Vue from 'vue'
 
+import { createApp } from 'vue'
 import {
-    Button
+    Button,
 } from 'vant'
+// const plugins = {
+//     Button 
+// }
+createApp().use(Button);
 
-Vue.use(Button)
+export default{
+    // plugins
+    Button
+}
