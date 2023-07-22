@@ -1,13 +1,11 @@
 <script setup lang="ts">
-// import {} from 'vue'
-
-const {title} = defineProps(['title']);
+const {title} = defineProps(['title','showIcon']);
 
 </script>
 <template>
 <div id="bar-nav">
     <div class="bar-title">
-        <van-icon name="arrow-left" />
+        <van-icon name="arrow-left" v-if="showIcon" />
         <div class="bar-name">{{title}}</div>
     </div>
 </div>
@@ -26,8 +24,9 @@ const {title} = defineProps(['title']);
         font-size: 25px;
         color: #fff;
         padding: 10px 0;
+        
         .van-icon{
-
+ 
         }
         .bar-name{
 
