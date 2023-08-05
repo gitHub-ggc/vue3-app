@@ -8,10 +8,11 @@ import 'amfe-flexible';
 import {Button,
         Icon,
         Swipe, 
-        SwipeItem
+        SwipeItem,
+        Uploader,  
     } from 'vant'
 import 'vant/lib/index.css';//vant 样式全局引入
 import './mock/mock'
 const app = createApp(App)
-app.use(Button).use(Icon).use(Swipe).use(SwipeItem)
+app.use(Button).use(Icon).use(Swipe).use(SwipeItem).use(Uploader )
 app.use(router).use(store).mount('#app')

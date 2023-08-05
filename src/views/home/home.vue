@@ -16,12 +16,12 @@ const route = useRoute();
             <span class="uer-name">刘小浩</span>
             <span class="uer-class">小班</span>
             <span class="uer-icon">
-              <img src="../static/images/icon_owhalrympar/xiazai.png" alt="">
+              <img src="../../static/images/icon_owhalrympar/xiazai.png" alt="">
             </span>
           </div>
           <div class="user-right">
             <div class="user-icon">
-              <img src="../static/images/icon_owhalrympar/jifenshangcheng.png" alt="">
+              <img src="../../static/images/icon_owhalrympar/jifenshangcheng.png" alt="">
             </div>
             <div class="user-num">2600</div>
           </div>
@@ -34,20 +34,20 @@ const route = useRoute();
     </div>
     <div class="home-banner">
       <div class="banner-box">
-        <img src="../static/images/git2.png" alt="">
+        <img src="../../static/images/git2.png" alt="">
       </div>
     </div>
     <div class="home-list">
       <div class="list-title">
         <div class="title-icon">
-          <img src="" alt="">
+          <img src="../../static/images/lihe.png" alt="">
         </div>
         <div class="title-text">礼盒列表</div>
       </div>
       <div class="list-content">
         <div class="list-box" v-for="(item,index) in 6" :key="index">
           <div class="list-img">
-            <img src="../static/images/banner2.jpg" alt="">
+            <img src="../../static/images/banner2.jpg" alt="">
           </div>
           <div class="box-title">这里是标题</div>
           <div class="box-content">这里是礼盒内容数据</div>
@@ -172,7 +172,7 @@ const route = useRoute();
   .list-title{
     display: flex;
     align-items: center;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
     .title-icon{
       display: flex;
       width:20px;
@@ -186,7 +186,7 @@ const route = useRoute();
       font-weight: bolder;
       color:#000;
       font-size:16px;
-      margin-left:10px;
+      margin-left:5px;
     }
   }
   .list-content{
@@ -223,6 +223,7 @@ const route = useRoute();
         display: flex;
         justify-content: center;
         padding-bottom: 10px;
+        font-size:15px;
         span{
           border-radius: 10px;
           display: inline-block;

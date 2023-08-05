@@ -1,11 +1,13 @@
 <script setup lang="ts">
 const {title} = defineProps(['title','showIcon']);
-
+function goBack(){
+    history.back()
+}
 </script>
 <template>
 <div id="bar-nav">
     <div class="bar-title">
-        <van-icon name="arrow-left" v-if="showIcon" />
+        <van-icon @click="goBack" name="arrow-left" v-if="showIcon" />
         <div class="bar-name">{{title}}</div>
     </div>
 </div>
@@ -21,15 +23,18 @@ const {title} = defineProps(['title','showIcon']);
         align-items: center;
         width: 100%;
         background: #e4bb6e;
-        font-size: 25px;
         color: #fff;
-        padding: 10px 0;
-        
-        .van-icon{
- 
+        padding: 15px 0;
+        text-align: center;
+        width:100%;
+        font-size: 18px;
+        ::v-deep .van-icon{
+            font-size:25px;
         }
         .bar-name{
-
+            text-align: center;
+            width:100%;
+            font-size: 18px;
         }
     }
 }

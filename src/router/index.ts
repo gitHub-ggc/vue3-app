@@ -9,7 +9,15 @@ const routes = [
     },
     {
         path:"/home",
-        component:() => import('@/views/home.vue')
+        component:() => import('@/views/home/home.vue')
+    },
+    {
+        path:"/dK",
+        component:() => import('@/views/dK/dK.vue')
+    },
+    {
+        path:`/dk-detail/:id`,
+        component:() => import('@/views/dK/components/dkDetail.vue')
     },
     {
         path:"/login",
